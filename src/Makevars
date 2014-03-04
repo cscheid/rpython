@@ -1,0 +1,6 @@
+# Required vars
+PKG_LIBS=-L/Users/cscheid/anaconda/lib -ldl -framework CoreFoundation -lpython2.7 -u _PyMac_Error
+PKG_CFLAGS=-I/Users/cscheid/anaconda/include/python2.7 -I/Users/cscheid/anaconda/include/python2.7 -D PYTHONLIBFILE=libpython2.7.dylib -D RPYTHONHOME=/Users/cscheid/anaconda
+
+all: $(SHLIB)
+	@-install_name_tool -change libpython2.7.dylib /Users/cscheid/anaconda/lib/python2.7/site-packages/../../libpython2.7.dylib $(SHLIB)

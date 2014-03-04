@@ -1,0 +1,6 @@
+# Required vars
+PKG_LIBS=@PKG_LIBS@
+PKG_CFLAGS=@PKG_CFLAGS@
+
+all: $(SHLIB)
+	@-install_name_tool -change @PYTHONLIBFILE@ @PYTHONLIBFILEPATH@ $(SHLIB)
