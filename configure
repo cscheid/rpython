@@ -1752,12 +1752,16 @@ fi
 
 MYPYTHONCONFIG=`which python-config`
 MYPYTHON=`which python`
-echo $MYPYTHON
-echo $RLD
-echo $MYPYTHONCONFIG
 
 # find user defined python version, if set
-
+if test -z "${RPYTHON_PYTHON_VERSION}"
+then
+  echo "a specific python version to use was not provided"
+  echo "defaulting to the standard python in the system"
+else
+  MYPYTHON=python${RPYTHON_PYTHON_VERSION}
+  MYPYTHONCONFIG=python${RPYTHON_PYTHON_VERSION}-config
+fi
 
 # Extract the linker and include flags for python
 : ${PYTHONCONFIG=`which ${MYPYTHONCONFIG}`}

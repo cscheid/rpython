@@ -3,7 +3,7 @@
 # cjgb, 20130902, fixed issues on json interface
 #########################################################
 
-python.call <- function( py.foo, ..., simplify = TRUE, as.is = FALSE ){
+python.call <- function( py.foo, ... ){
 
     foo.args <- list( ... )
 
@@ -18,8 +18,8 @@ python.call <- function( py.foo, ..., simplify = TRUE, as.is = FALSE ){
     #foo.args.dict <- toJSON( foo.args[  which.dict ] )
     #foo.args.vect <- toJSON( foo.args[ !which.dict ] )
 
-    foo.args.dict <- toJSON( foo.args[  which.dict ], collapse = " ", asIs = as.is )
-    foo.args.vect <- toJSON( foo.args[ !which.dict ], collapse = " ", asIs = as.is )
+    foo.args.dict <- toJSON( foo.args[  which.dict ] )
+    foo.args.vect <- toJSON( foo.args[ !which.dict ] )
 
     # Creating the call
 
@@ -39,8 +39,6 @@ python.call <- function( py.foo, ..., simplify = TRUE, as.is = FALSE ){
     python.exec( python.command )                       # Checks for errors
 
     ret <- python.get( "_r_call_return" )
-
-    if( length( ret ) == 1 && simplify ) ret <- ret[[1]]
 
     ret
 }
