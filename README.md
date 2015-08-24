@@ -1,3 +1,8 @@
+THIS IS DEFUNCT
+===============
+
+I haven't touched this repo in a year and a half. Chances are rPython is fixed now (though I haven't looked). In other words, these are probably not the droids you're looking for.
+
 rpython
 =======
 
